@@ -13,14 +13,10 @@ const links = [
 export function Nav() {
   return (
     <div className="nav">
-      <Link href="/" style={{ fontWeight: 800, fontSize: 20 }}>
-        BAT
-      </Link>
+      <Link href="/" style={{ fontWeight: 800, letterSpacing: 0.4 }}>BAT</Link>
       <div className="navLinks">
         {links.map(([label, href]) => (
-          <Link key={href} href={href} className="pill">
-            {label}
-          </Link>
+          <Link key={href} href={href} className="pill">{label}</Link>
         ))}
       </div>
     </div>

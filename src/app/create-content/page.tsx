@@ -3,38 +3,37 @@ import { contentIdeas } from '@/lib/mockData';
 
 export default function CreateContentPage() {
   return (
-    <PageShell title="Create Content" subtitle="Design better assets faster with visual planning and channel performance context.">
-      <section className="visualPanel" style={{ marginBottom: 16 }}>
+    <PageShell title="Create Content" subtitle="A visual studio for generating, scoring, and shipping channel-native content.">
+      <section className="splitVisual" style={{ marginBottom: 16 }}>
         <article className="card stack">
-          <h3 className="sectionTitle">Content Studio</h3>
-          <label>Platform<select className="input"><option>TikTok</option><option>Instagram</option><option>YouTube</option><option>LinkedIn</option></select></label>
-          <label>Campaign Goal<input className="input" placeholder="Increase demo bookings by 20%" /></label>
-          <label>Format<select className="input"><option>Short video script</option><option>Carousel</option><option>Caption with hashtags</option><option>Reply templates</option></select></label>
-          <label>Primary CTA<input className="input" placeholder="Start free trial" /></label>
+          <h3 className="sectionTitle">Studio</h3>
+          <label>Platform<select className="input"><option>TikTok</option><option>Instagram</option><option>YouTube</option></select></label>
+          <label>Objective<input className="input" placeholder="Increase demo bookings" /></label>
+          <label>Format<select className="input"><option>Video script</option><option>Carousel</option><option>Caption</option></select></label>
+          <label>CTA<input className="input" placeholder="Start free trial" /></label>
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
             <button className="btn">Generate</button>
-            <button className="btn ghost">Generate 3 Variations</button>
-            <button className="btn secondary">Save to Library</button>
+            <button className="btn ghost">Generate variations</button>
           </div>
         </article>
 
         <article className="card stack">
-          <h3 className="sectionTitle">Channel Potential</h3>
-          <div className="channelBars">
-            <div className="barRow"><span>TikTok</span><div className="barTrack"><div className="barFill" style={{ width: '86%' }} /></div><span>86</span></div>
-            <div className="barRow"><span>Instagram</span><div className="barTrack"><div className="barFill" style={{ width: '74%' }} /></div><span>74</span></div>
-            <div className="barRow"><span>YouTube</span><div className="barTrack"><div className="barFill" style={{ width: '68%' }} /></div><span>68</span></div>
-          </div>
-          <p className="muted" style={{ marginBottom: 0 }}>Scores estimate short-term opportunity based on BAT memory + recent performance.</p>
+          <h3 className="sectionTitle">Opportunity by channel</h3>
+          <div className="barRow"><span>TikTok</span><div className="barTrack"><div className="barFill" style={{ width: '88%' }} /></div><span>88</span></div>
+          <div className="barRow"><span>Instagram</span><div className="barTrack"><div className="barFill" style={{ width: '76%' }} /></div><span>76</span></div>
+          <div className="barRow"><span>YouTube</span><div className="barTrack"><div className="barFill" style={{ width: '67%' }} /></div><span>67</span></div>
+          <p className="muted" style={{ marginBottom: 0 }}>Higher score means stronger short-term opportunity.</p>
         </article>
       </section>
 
-      <section className="card">
-        <h3 className="sectionTitle">Generated Assets</h3>
+      <section className="card tableLike">
+        <h3 className="sectionTitle">Generated library</h3>
         {contentIdeas.map((item) => (
-          <div key={item.title} className="listRow">
-            <span>{item.channel} · {item.title}</span>
-            <span className="muted">{item.status} · {item.roi} ROI</span>
+          <div key={item.title} className="tableRow">
+            <span>{item.title}</span>
+            <span className="muted">{item.channel}</span>
+            <span className="muted">{item.roi} ROI</span>
+            <button className="btn secondary">Open</button>
           </div>
         ))}
       </section>
